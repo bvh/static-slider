@@ -112,21 +112,36 @@ body {
     display: block;
 }
 
-.slider h2 {
+.slider .title {
     position: absolute;
     top: 2.0vh;
     top: 2.0dvh;
     left: 50%;
     transform: translateX(-50%);
     z-index: 2;
+    display: flex;
+    align-items: baseline;
+    gap: 0;
+    white-space: nowrap;
+    pointer-events: none;
+}
+
+.slider h2 {
     margin: 0;
-    color: rgba(255,255,255,0.6);
+    color: rgba(255,255,255,0.7);
     font-size: 1.1rem;
     font-weight: bold;
     font-style: italic;
-    text-align: center;
-    white-space: nowrap;
-    pointer-events: none;
+}
+
+.slider .title .date {
+    color: rgba(255,255,255,0.5);
+    font-size: 0.9rem;
+    font-style: italic;
+}
+
+.slider .title .date::before {
+    content: "\2003\2014\2003";
 }
 
 .slider h2 a {
