@@ -135,8 +135,10 @@ document.querySelector('#gallery').addEventListener('click', (e) => {
 
 function getFocusableElements() {
     const elements = [closeBtn, infoBtn];
+    const slide = currentSlide();
+    const titleLink = slide?.querySelector('.title a');
+    if (titleLink) elements.push(titleLink);
     if (infoPanelOpen) {
-        const slide = currentSlide();
         const permalink = slide?.querySelector('.info-panel .permalink');
         if (permalink) elements.push(permalink);
     }
