@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <title>{{ img.title }} &mdash; {{ site.title }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{{ site.stylesheet }}">
+    <meta name="generator" content="Static Slider 0.1.0">
+</head>
+<body>
+    <header>
+        <h1>{{ img.title }}</h1>
+        <p class="date">{{ img.month }}, {{ img.year }}</p>
+    </header>
+    <main>
+        <figure>
+            <a href="{{ img.filename }}"><img src="{{ img.filename }}" alt="{{ img.description }}"></a>
+            <figcaption>
+                <p class="description">{{ img.description }}</p>
+                <p class="copyright">Copyright &copy; {{ img.year }} {{ img.artist }}</p>
+                <ul class="exposure">
+                    <li class="shutterspeed">{{ img.shutterspeed }}</li>
+                    <li class="aperture">{{ img.aperature }}</li>
+                    <li class="iso">ISO {{ img.iso }}</li>
+                    <li class="focallength35">{{ img.focallength35 }}</li>
+                </ul>
+            </figcaption>
+        </figure>
+    </main>
+</body>
+</html>

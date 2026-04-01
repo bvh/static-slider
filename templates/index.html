@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <title>{{ page.title }} &mdash; {{ site.title }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{{ site.stylesheet }}">
+    <meta name="generator" content="Static Slider 0.1.0">
+</head>
+<body>
+
+    <header>
+        <h1>The Palouse</h1>
+    </header>
+
+    <main>
+        <ul id="gallery" class="gallery">
+            {% for img in images %}
+                <li><a href="#{{ img.id }}"><img src="{{ img.id }}/{{ img.filename }}" alt="{{ img.description }}"></a></li>
+            {% endfor %}
+        </ul>
+        <div class="slider" role="dialog" aria-modal="true" aria-label="Image slider">
+            <a class="slider-btn close" href="#gallery" aria-label="Close slider"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></a>
+            <a class="slider-btn info" href="#" aria-label="View image details"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="11"/><circle cx="12" cy="7.5" r="1.25" fill="currentColor" stroke="none"/></svg></a>
+            <ul tabindex="0" role="region" aria-label="Image slides">
+                {% for img in images %}
+                    <li id="{{ img.id }}" role="group" aria-roledescription="slide" aria-label="Slide {{ img.number }} of {{ images | count }}"><h2>{{ img.title }}</h2><p class="counter" aria-hidden="true">{{ img.number }} of {{ images | count }}</p><img src="{{ img.id }}/{{ img.filename }}" alt="{{ img.description }}"></li>
+                {% endfor %}
+            </ul>
+            <button class="slider-btn scroll-btn-prev" aria-label="Previous">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="3 3 18 18" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+            </button>
+            <button class="slider-btn scroll-btn-next" aria-label="Next">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="3 3 18 18" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg>
+            </button>
+        </div>
+    </main>
+
+<script src="{{ site.script }}"></script>
+
+</body>
+</html>

@@ -1,0 +1,6 @@
+{
+    "site": {
+        "stylesheet": "css/styles.css",
+        "script": "js/slider.js"
+    }
+}
