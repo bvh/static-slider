@@ -7,15 +7,38 @@ const prevBtn = slider.querySelector('.scroll-btn-prev');
 const nextBtn = slider.querySelector('.scroll-btn-next');
 let openerThumbnail = null;
 
-function updateInfoButton() {
+let infoPanelOpen = false;
+
+function openInfoPanel() {
+    infoPanelOpen = true;
+    slider.classList.add('info-open');
+    infoBtn.classList.add('active');
+    infoBtn.setAttribute('aria-expanded', 'true');
     const slide = currentSlide();
-    if (slide && slide.id) {
-        infoBtn.href = slide.id + '/';
-        infoBtn.removeAttribute('aria-disabled');
-        infoBtn.style.pointerEvents = '';
-        infoBtn.style.opacity = '';
+    const panel = slide?.querySelector('.info-panel');
+    if (panel) panel.setAttribute('aria-hidden', 'false');
+}
+
+function closeInfoPanel() {
+    if (!infoPanelOpen) return;
+    infoPanelOpen = false;
+    slider.classList.remove('info-open');
+    infoBtn.classList.remove('active');
+    infoBtn.setAttribute('aria-expanded', 'false');
+    for (const panel of slider.querySelectorAll('.info-panel')) {
+        panel.setAttribute('aria-hidden', 'true');
     }
 }
+
+function toggleInfoPanel() {
+    if (infoPanelOpen) {
+        closeInfoPanel();
+    } else {
+        openInfoPanel();
+    }
+}
+
+infoBtn.addEventListener('click', toggleInfoPanel);
 
 function currentSlide() {
     const scrollLeft = list.scrollLeft;
@@ -31,17 +54,10 @@ function syncHash() {
     }
 }
 
-function disableInfoButton() {
-    infoBtn.setAttribute('aria-disabled', 'true');
-    infoBtn.style.pointerEvents = 'none';
-    infoBtn.removeAttribute('href');
-}
-
 let lastSettledSlide = null;
 function onScrollSettle() {
     lastSettledSlide = currentSlide();
     syncHash();
-    updateInfoButton();
 }
 
 if ('onscrollend' in window) {
@@ -49,7 +65,8 @@ if ('onscrollend' in window) {
     list.addEventListener('scroll', () => {
         if (!scrolling) {
             scrolling = true;
-            disableInfoButton();
+            closeInfoPanel();
+            if (document.activeElement === infoBtn) infoBtn.blur();
         }
     });
     list.addEventListener('scrollend', () => {
@@ -60,7 +77,10 @@ if ('onscrollend' in window) {
     let scrollTimer;
     list.addEventListener('scroll', () => {
         const slide = currentSlide();
-        if (slide !== lastSettledSlide) disableInfoButton();
+        if (slide !== lastSettledSlide) {
+            closeInfoPanel();
+            if (document.activeElement === infoBtn) infoBtn.blur();
+        }
         clearTimeout(scrollTimer);
         scrollTimer = setTimeout(onScrollSettle, 50);
     });
@@ -94,17 +114,16 @@ function returnFocusToThumbnail() {
 
 window.addEventListener('hashchange', () => {
     scrollToTarget();
-    updateInfoButton();
     if (isSliderOpen()) {
         focusSlider();
     } else {
+        closeInfoPanel();
         returnFocusToThumbnail();
     }
 });
 
 requestAnimationFrame(() => {
     scrollToTarget();
-    updateInfoButton();
     focusSlider();
 });
 
@@ -116,6 +135,11 @@ document.querySelector('#gallery').addEventListener('click', (e) => {
 
 function getFocusableElements() {
     const elements = [closeBtn, infoBtn];
+    if (infoPanelOpen) {
+        const slide = currentSlide();
+        const permalink = slide?.querySelector('.info-panel .permalink');
+        if (permalink) elements.push(permalink);
+    }
     if (prevBtn && !prevBtn.disabled) elements.push(prevBtn);
     if (nextBtn && !nextBtn.disabled) elements.push(nextBtn);
     return elements;
@@ -125,7 +149,11 @@ document.addEventListener('keydown', (e) => {
     if (!isSliderOpen()) return;
 
     if (e.key === 'Escape') {
-        location.hash = '#gallery';
+        if (infoPanelOpen) {
+            closeInfoPanel();
+        } else {
+            location.hash = '#gallery';
+        }
     } else if (e.key === 'ArrowRight') {
         list.scrollBy({ left: list.clientWidth, behavior: 'smooth' });
     } else if (e.key === 'ArrowLeft') {

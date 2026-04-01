@@ -21,7 +21,7 @@
         </ul>
         <div class="slider" role="dialog" aria-modal="true" aria-label="Image slider">
             <a class="slider-btn close" href="#gallery" aria-label="Close slider"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></a>
-            <a class="slider-btn info" href="#" aria-label="View image details"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="11"/><circle cx="12" cy="7.5" r="1.25" fill="currentColor" stroke="none"/></svg></a>
+            <button class="slider-btn info" aria-label="Image details" aria-expanded="false"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="11"/><circle cx="12" cy="7.5" r="1.25" fill="currentColor" stroke="none"/></svg></button>
             <ul tabindex="0" role="region" aria-label="Image slides">
                 {% for img in images %}
                     <li id="{{ img.id }}" role="group" aria-roledescription="slide" aria-label="Slide {{ img.number }} of {{ images | count }}">
@@ -31,6 +31,19 @@
                         </div>
                         <img src="{{ img.id }}/{{ img.filename }}" alt="{{ img.description }}">
                         <p class="counter" aria-hidden="true">{{ img.number }} of {{ images | count }}</p>
+                        <div class="info-panel" aria-hidden="true">
+                            <h3>{{ img.title }}</h3>
+                            <p class="date">{{ img.month }}, {{ img.year }}</p>
+                            <p class="description">{{ img.description }}</p>
+                            <ul class="exposure">
+                                <li>{{ img.shutterspeed }}</li>
+                                <li>{{ img.aperture }}</li>
+                                <li>ISO {{ img.iso }}</li>
+                                <li>{{ img.focallength35 }}</li>
+                            </ul>
+                            <p class="copyright">Copyright &copy; {{ img.year }} {{ img.artist }}</p>
+                            <a class="permalink" href="{{ img.id }}/">Permalink</a>
+                        </div>
                     </li>
                 {% endfor %}
             </ul>
