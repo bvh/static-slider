@@ -24,7 +24,11 @@
             <a class="slider-btn info" href="#" aria-label="View image details"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="11"/><circle cx="12" cy="7.5" r="1.25" fill="currentColor" stroke="none"/></svg></a>
             <ul tabindex="0" role="region" aria-label="Image slides">
                 {% for img in images %}
-                    <li id="{{ img.id }}" role="group" aria-roledescription="slide" aria-label="Slide {{ img.number }} of {{ images | count }}"><h2>{{ img.title }}</h2><p class="counter" aria-hidden="true">{{ img.number }} of {{ images | count }}</p><img src="{{ img.id }}/{{ img.filename }}" alt="{{ img.description }}"></li>
+                    <li id="{{ img.id }}" role="group" aria-roledescription="slide" aria-label="Slide {{ img.number }} of {{ images | count }}">
+                        <h2><a href="{{ img.id }}/">{{ img.title }}</a></h2>
+                        <img src="{{ img.id }}/{{ img.filename }}" alt="{{ img.description }}">
+                        <p class="counter" aria-hidden="true">{{ img.number }} of {{ images | count }}</p>
+                    </li>
                 {% endfor %}
             </ul>
             <button class="slider-btn scroll-btn-prev" aria-label="Previous">
