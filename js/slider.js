@@ -141,7 +141,7 @@ function getFocusableElements() {
         const permalink = slide?.querySelector('.info-panel .permalink');
         if (permalink) elements.push(permalink);               // permalink (upper middle)
     }
-    elements.push(closeBtn)                                    // close (upper right)
+    elements.push(closeBtn);                                   // close (upper right)
     if (prevBtn && !prevBtn.disabled) elements.push(prevBtn);  // prev (lower left)
     if (titleLink) elements.push(titleLink);                   // title (lower middle)
     if (nextBtn && !nextBtn.disabled) elements.push(nextBtn);  // next (lower right)
