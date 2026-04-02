@@ -26,13 +26,12 @@
                 {% for img in images %}
                     <li id="{{ img.id }}" role="group" aria-roledescription="slide" aria-label="Slide {{ img.number }} of {{ images | count }}">
                         <figure class="slide-figure">
-                            <div class="title">
-                                <h2><a href="{{ img.id }}/">{{ img.title }}</a></h2>
-                                <p class="date">{{ img.month }}, {{ img.year }}</p>
-                            </div>
                             <img src="{{ img.id }}/{{ img.filename }}" alt="{{ img.description }}">
+                            <div class="slide-caption">
+                                <p class="counter" aria-hidden="true">{{ img.number }} of {{ images | count }}</p>
+                                <h2><a href="{{ img.id }}/">{{ img.title }}</a></h2>
+                            </div>
                         </figure>
-                        <p class="counter" aria-hidden="true">{{ img.number }} of {{ images | count }}</p>
                         <div class="info-panel" aria-hidden="true">
                             <h3>{{ img.title }}</h3>
                             <p class="date">{{ img.month }}, {{ img.year }}</p>
