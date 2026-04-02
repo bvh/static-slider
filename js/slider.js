@@ -134,16 +134,17 @@ document.querySelector('#gallery').addEventListener('click', (e) => {
 });
 
 function getFocusableElements() {
-    const elements = [closeBtn, infoBtn];
+    const elements = [infoBtn];                                // info (upper left)
     const slide = currentSlide();
-    const titleLink = slide?.querySelector('.title a');
-    if (titleLink) elements.push(titleLink);
+    const titleLink = slide?.querySelector('.slide-caption a');
     if (infoPanelOpen) {
         const permalink = slide?.querySelector('.info-panel .permalink');
-        if (permalink) elements.push(permalink);
+        if (permalink) elements.push(permalink);               // permalink (upper middle)
     }
-    if (prevBtn && !prevBtn.disabled) elements.push(prevBtn);
-    if (nextBtn && !nextBtn.disabled) elements.push(nextBtn);
+    elements.push(closeBtn)                                    // close (upper right)
+    if (prevBtn && !prevBtn.disabled) elements.push(prevBtn);  // prev (lower left)
+    if (titleLink) elements.push(titleLink);                   // title (lower middle)
+    if (nextBtn && !nextBtn.disabled) elements.push(nextBtn);  // next (lower right)
     return elements;
 }
 
@@ -174,6 +175,12 @@ document.addEventListener('keydown', (e) => {
             e.preventDefault();
             const nextIndex = currentIndex >= focusable.length - 1 ? 0 : currentIndex + 1;
             focusable[nextIndex].focus();
+        }
+    } else if (e.key === 'i') {
+        if (infoPanelOpen) {
+            closeInfoPanel();
+        } else {
+            openInfoPanel();
         }
     }
 });

@@ -82,10 +82,6 @@ body {
 }
 
 .slider ul:focus-visible {
-    /*
-    outline: 2px solid rgba(255,255,255,0.5);
-    outline-offset: -2px;
-    */
     outline: 0px;
 }
 
@@ -124,20 +120,19 @@ body {
     width: auto;
     height: auto;
     display: block;
+    border-radius: 0.25rem;
 }
 
 .slide-caption {
     display: flex;
     justify-content: space-between;
     align-items: baseline;
-    margin-top: 0.5em;
+    margin-top: 0.7em;
 }
 
-.slider .title {
-    display: flex;
-    align-items: baseline;
-    gap: 0;
-    white-space: nowrap;
+.slider .counter {
+    color: rgba(255,255,255,0.3);
+    font-size: 1rem;
     pointer-events: none;
 }
 
@@ -145,19 +140,20 @@ body {
     margin: 0;
     color: rgba(255,255,255,0.5);
     font-size: 1.1rem;
-    font-weight: bold;
+    font-weight: normal;
     font-style: italic;
 }
 
 .slider h2 a {
-    pointer-events: auto;
     color: inherit;
     text-decoration: none;
 }
 
-.slider h2 a:hover {
+.slider h2 a:hover,
+.slider h2 a:focus-visible {
     color: rgba(255,255,255,0.7);
     text-decoration: underline;
+    outline: 0px;
 }
 
 body:has(.slider :target) {
@@ -184,16 +180,12 @@ body:has(.slider :target) {
     color: rgba(255,255,255,0.5);
     line-height: 1;
     cursor: pointer;
-    text-decoration: none;
 }
 
 .slider-btn:hover,
 .slider-btn:focus-visible {
     background: rgba(255,255,255,0.35);
     color: rgba(255,255,255,1.0);
-}
-
-.slider-btn:focus-visible {
     outline: 0px;
 }
 
@@ -202,19 +194,10 @@ body:has(.slider :target) {
 }
 
 .slider-btn:disabled {
-    opacity: 0.2;
+    opacity: 0.3;
     cursor: unset;
 }
 
-/* Slide counter */
-
-.counter {
-    color: rgba(255,255,255,0.2);
-    font-size: 1.1rem;
-    font-variant-numeric: tabular-nums;
-    white-space: nowrap;
-    pointer-events: none;
-}
 
 /* Close button */
 
@@ -281,6 +264,18 @@ body:has(.slider :target) {
     font-style: italic;
 }
 
+.info-panel h3 a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.info-panel h3 a:hover,
+.info-panel h3 a:focus-visible {
+    color: rgba(255,255,255,1.0);
+    text-decoration: underline;
+    outline: 0px;
+}
+
 .info-panel .date {
     font-style: italic;
     opacity: 0.5;
@@ -296,9 +291,8 @@ body:has(.slider :target) {
     display: flex;
     flex-wrap: wrap;
     list-style: none;
-    font-variant-numeric: tabular-nums;
-    opacity: 0.6;
-    font-size: 0.85rem;
+    opacity: 0.4;
+    font-size: 0.75rem;
 }
 
 .info-panel .exposure li::after {
@@ -311,19 +305,8 @@ body:has(.slider :target) {
 
 .info-panel .copyright {
     margin-top: 0.75em;
-    font-size: 0.8rem;
+    font-size: 0.85rem;
     opacity: 0.5;
-}
-
-.info-panel .permalink {
-    display: inline-block;
-    margin-top: 0.75em;
-    color: rgba(255,255,255,0.6);
-    font-size: 0.8rem;
-}
-
-.info-panel .permalink:hover {
-    color: rgba(255,255,255,1.0);
 }
 
 /* Scroll buttons */
@@ -349,7 +332,6 @@ body:has(.slider :target) {
 .scroll-btn-next svg {
     translate: 1px 0;
 }
-
 
 /* Visually hidden (screen-reader only) */
 
@@ -413,7 +395,6 @@ body.image main > figure img {
     width: auto;
     height: auto;
     display: block;
-    border-radius: 0.25rem;
 }
 
 main > figure figcaption {

@@ -33,7 +33,7 @@
                             </div>
                         </figure>
                         <div class="info-panel" aria-hidden="true">
-                            <h3>{{ img.title }}</h3>
+                            <h3><a class="permalink" href="{{ img.id }}/">{{ img.title }}</a></h3>
                             <p class="date">{{ img.month }}, {{ img.year }}</p>
                             <p class="description">{{ img.description }}</p>
                             <ul class="exposure">
@@ -43,7 +43,6 @@
                                 <li>{{ img.focallength35 }}</li>
                             </ul>
                             <p class="copyright">Copyright &copy; {{ img.year }} {{ img.artist }}</p>
-                            <a class="permalink" href="{{ img.id }}/">Permalink</a>
                         </div>
                     </li>
                 {% endfor %}
