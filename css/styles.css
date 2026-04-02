@@ -6,10 +6,7 @@
 
 body {
     margin: 8vh 8vw 8vh 8vw;
-    margin-top: 8dvh;
-    margin-right: 8dvw;
-    margin-bottom: 8dvh;
-    margin-left: 8dvw;
+    margin: 8dvh 8dvw 8dvh 8dvw;
 
     color: #222222;
     background-color: #dddddd;
@@ -32,8 +29,6 @@ body {
     gap: 2rem;
 }
 .gallery li {
-    margin: 0;
-    padding: 0;
     list-style-type: none;
     flex: 0 1 calc(50% - 1rem);
     max-width: 200px;
@@ -94,10 +89,7 @@ body {
     max-height: 100vh;
     max-height: 100dvh;
     padding: 6.5vh 6vw 6vh 6vw;
-    padding-top: 6.5dvh;
-    padding-right: 6dvw;
-    padding-bottom: 6dvh;
-    padding-left: 6dvw;
+    padding: 6.5dvh 6dvw 6dvh 6dvw;
     scroll-snap-align: center;
     display: flex;
     align-items: center;
@@ -333,29 +325,12 @@ body:has(.slider :target) {
     translate: 1px 0;
 }
 
-/* Visually hidden (screen-reader only) */
-
-.visually-hidden {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border: 0;
-}
-
 /* Image detail page */
 
 body.image {
     margin: 0;
     padding: 6vh 6vw 6vh 6vw;
-    padding-top: 6dvh;
-    padding-right: 6dvw;
-    padding-bottom: 6dvh;
-    padding-left: 6dvw;
+    padding: 6dvh 6dvw 6dvh 6dvw;
 }
 
 body.image main > figure {
