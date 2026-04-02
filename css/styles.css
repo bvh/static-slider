@@ -417,6 +417,8 @@ body.image main > figure img {
 }
 
 main > figure figcaption {
+    width: 0;
+    min-width: 100%;
     margin-top: 1.5em;
     font-size: 0.95rem;
     line-height: 1.0;
