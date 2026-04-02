@@ -10,7 +10,7 @@ Static Slider is a static site generator for photography galleries. It takes sou
 
 Generate the gallery into `public/`:
 ```
-uv run generate.py
+uv run build.py
 ```
 
 Preview locally:
@@ -27,7 +27,7 @@ Python 3.14+, managed via `uv`. Only external dependency is Jinja2.
 
 ## Architecture
 
-- **`generate.py`** — Main build script. Reads `config.json` and `images/gallery.json`, merges them into a template context, renders Jinja2 templates, copies source images and static assets, and writes everything to `public/`. Cleans `public/` on each run.
+- **`build.py`** — Main build script. Reads `config.json` and `images/gallery.json`, merges them into a template context, renders Jinja2 templates, copies source images and static assets, and writes everything to `public/`. Cleans `public/` on each run.
 - **`config.json`** — Site-wide settings (stylesheet/script paths), keyed under `site`.
 - **`images/gallery.json`** — Gallery manifest: ordered list of images with metadata (title, description, EXIF data, artist, dates). Each image's `id` doubles as its subdirectory name in the output. Data is nested as `site.gallery.images[]`. Note: the entire `images/` directory is gitignored (including `gallery.json` itself); only `gallery.json` matters for templates.
 - **`templates/index.html`** — Gallery index template. Renders a thumbnail grid and a full-screen slider. Uses Jinja2 `{{ }}` / `{% %}` syntax. Context variables: `site`, `gallery`, `images`.
@@ -41,7 +41,7 @@ The generator should produce `public/index.html` and a subdirectory per image (e
 
 ## Template Context
 
-`generate.py` merges `config.json` (site-level settings like stylesheet/script paths) with `gallery.json` (site title, gallery metadata, images array). After merging, it pops `gallery` and `images` out of `site` so templates receive three top-level variables:
+`build.py` merges `config.json` (site-level settings like stylesheet/script paths) with `gallery.json` (site title, gallery metadata, images array). After merging, it pops `gallery` and `images` out of `site` so templates receive three top-level variables:
 - `site` — merged site settings (`title`, `stylesheet`, `script`)
 - `gallery` — gallery metadata (`title`)
 - `images` — the ordered image list (each has `id`, `filename`, `title`, `description`, EXIF fields, etc.)

@@ -15,7 +15,7 @@ source root.
 
 Use `uv` to run the Python3 script:
 ```
-uv run generate.py
+uv run build.py
 ```
 
 ### Verify
