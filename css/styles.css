@@ -187,7 +187,6 @@ body:has(.slider :target) {
 
 .slider-btn:disabled {
     opacity: 0.3;
-    cursor: unset;
 }
 
 
