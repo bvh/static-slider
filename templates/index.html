@@ -36,12 +36,7 @@
                             <h3><a class="permalink" href="{{ img.id }}/">{{ img.title }}</a></h3>
                             <p class="date">{{ img.month }}, {{ img.year }}</p>
                             <p class="description">{{ img.description }}</p>
-                            <ul class="exposure">
-                                <li>{{ img.shutterspeed }}</li>
-                                <li>{{ img.aperture }}</li>
-                                <li>ISO {{ img.iso }}</li>
-                                <li>{{ img.focallength35 }}</li>
-                            </ul>
+                            <p class="exposure">{{ img.shutterspeed }}, {{ img.aperture }}, ISO {{ img.iso }}, {{ img.focallength35 }}</p>
                             <p class="copyright">Copyright &copy; {{ img.year }} {{ img.artist }}</p>
                         </div>
                     </li>

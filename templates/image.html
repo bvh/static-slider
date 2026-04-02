@@ -17,12 +17,7 @@
             <a href="{{ img.filename }}"><img src="{{ img.filename }}" alt="{{ img.description }}"></a>
             <figcaption>
                 <p class="description">{{ img.description }}</p>
-                <ul class="exposure">
-                    <li class="shutterspeed">{{ img.shutterspeed }}</li>
-                    <li class="aperture">{{ img.aperture }}</li>
-                    <li class="iso">ISO {{ img.iso }}</li>
-                    <li class="focallength35">{{ img.focallength35 }}</li>
-                </ul>
+                <p class="exposure">{{ img.shutterspeed }}, {{ img.aperture }}, ISO {{ img.iso }}, {{ img.focallength35 }}</p>
             </figcaption>
             <footer>
                 <p class="copyright">Copyright &copy; {{ img.year }} {{ img.artist }}</p>

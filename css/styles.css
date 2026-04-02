@@ -280,19 +280,8 @@ body:has(.slider :target) {
 }
 
 .info-panel .exposure {
-    display: flex;
-    flex-wrap: wrap;
-    list-style: none;
     opacity: 0.4;
     font-size: 0.75rem;
-}
-
-.info-panel .exposure li::after {
-    content: ",\00a0";
-}
-
-.info-panel .exposure li:last-child::after {
-    content: none;
 }
 
 .info-panel .copyright {
@@ -384,20 +373,9 @@ main > figure figcaption {
 }
 
 main > figure .exposure {
-    display: flex;
-    flex-wrap: wrap;
-    list-style: none;
     font-size: 0.9rem;
     margin-top: 0.8em;
     opacity: 0.4;
-}
-
-main > figure .exposure li::after {
-    content: ",\00a0";
-}
-
-main > figure .exposure li:last-child::after {
-    content: none;
 }
 
 main > figure .copyright {
