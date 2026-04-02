@@ -1,6 +1,9 @@
 # Local development notes
 NOTES.md
 
+# Environment variables
+.env
+
 # Images
 images/*
 
