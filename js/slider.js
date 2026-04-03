@@ -180,6 +180,10 @@ document.addEventListener('keydown', (e) => {
             focusable[nextIndex].focus();
         }
     } else if (e.key === 'i') {
+        const tag = document.activeElement?.tagName;
+        if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT' || document.activeElement?.isContentEditable) {
+            return;
+        }
         if (infoPanelOpen) {
             closeInfoPanel();
         } else {
