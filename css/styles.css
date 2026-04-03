@@ -380,16 +380,18 @@ main > .image .exposure {
 }
 
 main .image footer {
-    margin-top: 1rem;
+    margin-top: calc(1rem - 6px);
     width: 0;
     min-width: 100%;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: baseline;
 }
 
 main .image footer svg {
-    translate: -0.3em 3px;
+    translate: 0 6px;
+    padding-right: 0.5em;
 }
 
 main > .image footer .copyright,
