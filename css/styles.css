@@ -321,7 +321,7 @@ body.image {
     padding: 6dvh 6dvw 6dvh 6dvw;
 }
 
-body.image main > figure {
+body.image main > .image {
     width: fit-content;
     max-width: 88vw;
     max-width: 88dvw;
@@ -330,29 +330,31 @@ body.image main > figure {
     flex-direction: column;
 }
 
-body.image main > figure header {
+body.image main > .image header {
     margin-bottom: 1.2em;
 }
 
-body.image main > figure header h1 {
+body.image main > .image header h1 {
     font-size: 1.8rem;
     font-weight: bold;
     font-style: italic;
 }
 
-body.image main > figure header .date {
+body.image main > .image header .date {
     font-style: italic;
     font-size: 1.2rem;
     line-height: 1.2;
     opacity: 0.7;
+    margin-top: 0;
 }
 
-main > figure a {
+main > .image a.zoom {
     display: block;
     line-height: 0;
+    cursor: zoom-in;
 }
 
-body.image main > figure img {
+body.image main > .image img {
     max-width: 88vw;
     max-width: 88dvw;
     max-height: 87vh;
@@ -362,7 +364,7 @@ body.image main > figure img {
     display: block;
 }
 
-main > figure figcaption {
+main > .image p {
     width: 0;
     min-width: 100%;
     margin-top: 0.5em;
@@ -371,14 +373,44 @@ main > figure figcaption {
     opacity: 0.7;
 }
 
-main > figure .exposure {
+main > .image .exposure {
     font-size: 0.9rem;
-    margin-top: 0.8em;
+    margin-top: 1rem;
     opacity: 0.4;
 }
 
-main > figure .copyright {
-    margin-top: 1em;
+main .image footer {
+    margin-top: 1rem;
+    width: 0;
+    min-width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+main .image footer svg {
+    translate: -0.3em 3px;
+}
+
+main > .image footer .copyright,
+main > .image footer .return {
+    width: auto;
+    min-width: 0;
+    margin-top: 0;
+    color: inherit;
     font-size: 1rem;
-    opacity: 0.7;
+    opacity: 0.6;
+}
+
+main > .image footer .return a {
+    color: inherit;
+    display: inline;
+    text-decoration: none;
+}
+
+main > .image footer .return a:hover,
+main > .image footer .return a:focus-visible {
+    color: inherit;
+    text-decoration: underline;
+    opacity: 0.9;
 }
