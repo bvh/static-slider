@@ -14,6 +14,9 @@ function openInfoPanel() {
     slider.classList.add('info-open');
     infoBtn.classList.add('active');
     infoBtn.setAttribute('aria-expanded', 'true');
+    for (const panel of slider.querySelectorAll('.info-panel')) {
+        panel.setAttribute('aria-hidden', 'true');
+    }
     const slide = currentSlide();
     const panel = slide?.querySelector('.info-panel');
     if (panel) panel.setAttribute('aria-hidden', 'false');
