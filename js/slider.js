@@ -61,6 +61,7 @@ let lastSettledSlide = null;
 function onScrollSettle() {
     lastSettledSlide = currentSlide();
     syncHash();
+    updateButtonStates();
 }
 
 if ('onscrollend' in window) {
@@ -202,7 +203,7 @@ nextBtn.addEventListener('click', () => {
 
 function updateButtonStates() {
     prevBtn.disabled = list.scrollLeft <= 0;
-    nextBtn.disabled = list.scrollLeft >= list.scrollWidth - list.clientWidth - 1;
+    nextBtn.disabled = list.scrollLeft >= list.scrollWidth - list.clientWidth;
 }
 
 list.addEventListener('scroll', updateButtonStates);
