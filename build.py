@@ -69,7 +69,7 @@ def build_image_pages(env, context, public_dir, images_src):
             print(f"*** WARNING: Source image not found: {src}", file=sys.stderr)
 
         # render detail page
-        html = template.render(site=context["site"], img=img)
+        html = template.render(site=context["site"], gallery=context["gallery"], img=img)
         (img_dir / "index.html").write_text(html, encoding="utf-8")
         print(f"  Wrote {img['id']}/index.html", file=sys.stderr)
 
