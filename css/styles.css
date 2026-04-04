@@ -6,7 +6,7 @@
 
 body {
     margin: 8vh 8vw 8vh 8vw;
-    margin: 8dvh 8dvw 8dvh 8dvw;
+    margin: 8svh 8svw 8svh 8svw;
 
     color: #222222;
     background-color: #dddddd;
@@ -56,9 +56,9 @@ body {
     left: 0;
     display: none;
     width: 100vw;
-    width: 100dvw;
+    width: 100svw;
     height: 100vh;
-    height: 100dvh;
+    height: 100svh;
     background: rgba(0,0,0,0.85);
 }
 
@@ -85,11 +85,11 @@ body {
     list-style-type: none;
     flex: 0 0 100%;
     max-width: 100vw;
-    max-width: 100dvw;
+    max-width: 100svw;
     max-height: 100vh;
-    max-height: 100dvh;
+    max-height: 100svh;
     padding: 6.5vh 6vw 6vh 6vw;
-    padding: 6.5dvh 6dvw 6dvh 6dvw;
+    padding: 6.5svh 6svw 6svh 6svw;
     scroll-snap-align: center;
     display: flex;
     align-items: center;
@@ -106,9 +106,9 @@ body {
 
 .slide .image img {
     max-width: 88vw;
-    max-width: 88dvw;
+    max-width: 88svw;
     max-height: 87vh;
-    max-height: 87dvh;
+    max-height: 87svh;
     width: auto;
     height: auto;
     display: block;
@@ -193,18 +193,18 @@ body:has(.slider :target) {
 
 .slider a.close-button {
     top: 1.5vh;
-    top: 1.5dvh;
+    top: 1.5svh;
     right: 1.5vw;
-    right: 1.5dvw;
+    right: 1.5svw;
 }
 
 /* Info button */
 
 .slider .info-button {
     top: 1.5vh;
-    top: 1.5dvh;
+    top: 1.5svh;
     left: 1.5vw;
-    left: 1.5dvw;
+    left: 1.5svw;
 }
 
 .slider .info-button.active {
@@ -223,9 +223,9 @@ body:has(.slider :target) {
 .info {
     position: absolute;
     top: calc(1.5vh + 2.5rem + 0.75rem);
-    top: calc(1.5dvh + 2.5rem + 0.75rem);
+    top: calc(1.5svh + 2.5rem + 0.75rem);
     left: 1.5vw;
-    left: 1.5dvw;
+    left: 1.5svw;
     z-index: 4;
     max-width: 20rem;
     padding: 1rem 1.25rem;
@@ -292,9 +292,9 @@ body:has(.slider :target) {
 
 .prev-button {
     bottom: 1.5vh;
-    bottom: 1.5dvh;
+    bottom: 1.5svh;
     left: 1.5vw;
-    left: 1.5dvw;
+    left: 1.5svw;
 }
 
 .prev-button svg {
@@ -303,9 +303,9 @@ body:has(.slider :target) {
 
 .next-button {
     bottom: 1.5vh;
-    bottom: 1.5dvh;
+    bottom: 1.5svh;
     right: 1.5vw;
-    right: 1.5dvw;
+    right: 1.5svw;
 }
 
 .next-button svg {
@@ -317,13 +317,13 @@ body:has(.slider :target) {
 body.image-page {
     margin: 0;
     padding: 6vh 6vw 6vh 6vw;
-    padding: 6dvh 6dvw 6dvh 6dvw;
+    padding: 6svh 6svw 6svh 6svw;
 }
 
 .image-page .image {
     width: fit-content;
     max-width: 88vw;
-    max-width: 88dvw;
+    max-width: 88svw;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -355,9 +355,9 @@ body.image-page {
 
 .image-page .image img {
     max-width: 88vw;
-    max-width: 88dvw;
+    max-width: 88svw;
     max-height: 87vh;
-    max-height: 87dvh;
+    max-height: 87svh;
     width: auto;
     height: auto;
     display: block;
