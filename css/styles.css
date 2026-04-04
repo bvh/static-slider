@@ -80,7 +80,7 @@ body {
     outline: 0px;
 }
 
-.slider > ul > li {
+.slider .slide {
     position: relative;
     list-style-type: none;
     flex: 0 0 100%;
@@ -96,7 +96,7 @@ body {
     justify-content: center;
 }
 
-.slide-figure {
+.slide .image {
     display: flex;
     flex-direction: column;
     width: fit-content;
@@ -104,7 +104,7 @@ body {
     min-height: 0;
 }
 
-.slide-figure img {
+.slide .image img {
     max-width: 88vw;
     max-width: 88dvw;
     max-height: 87vh;
@@ -115,20 +115,20 @@ body {
     border-radius: 0.25rem;
 }
 
-.slide-caption {
+.slide footer {
     display: flex;
     justify-content: space-between;
     align-items: baseline;
     margin-top: 0.7em;
 }
 
-.slider .counter {
+.slide .counter {
     color: rgba(255,255,255,0.3);
     font-size: 1rem;
     pointer-events: none;
 }
 
-.slider h2 {
+.slide h2 {
     margin: 0;
     color: rgba(255,255,255,0.5);
     font-size: 1.1rem;
@@ -136,13 +136,13 @@ body {
     font-style: italic;
 }
 
-.slider h2 a {
+.slide h2 a {
     color: inherit;
     text-decoration: none;
 }
 
-.slider h2 a:hover,
-.slider h2 a:focus-visible {
+.slide h2 a:hover,
+.slide h2 a:focus-visible {
     color: rgba(255,255,255,0.7);
     text-decoration: underline;
     outline: 0px;
@@ -158,7 +158,7 @@ body:has(.slider :target) {
 
 /* Shared overlay button styles */
 
-.slider-btn {
+.slider-button {
     position: fixed;
     z-index: 3;
     display: flex;
@@ -174,25 +174,24 @@ body:has(.slider :target) {
     cursor: pointer;
 }
 
-.slider-btn:hover,
-.slider-btn:focus-visible {
+.slider-button:hover,
+.slider-button:focus-visible {
     background: rgba(255,255,255,0.35);
     color: rgba(255,255,255,1.0);
     outline: 0px;
 }
 
-.slider-btn:active:not(:disabled) {
+.slider-button:active:not(:disabled) {
     translate: 1px 1px;
 }
 
-.slider-btn:disabled {
+.slider-button:disabled {
     opacity: 0.3;
 }
 
-
 /* Close button */
 
-.slider a.close {
+.slider a.close-button {
     top: 1.5vh;
     top: 1.5dvh;
     right: 1.5vw;
@@ -201,27 +200,27 @@ body:has(.slider :target) {
 
 /* Info button */
 
-.slider .info {
+.slider .info-button {
     top: 1.5vh;
     top: 1.5dvh;
     left: 1.5vw;
     left: 1.5dvw;
 }
 
-.slider .info.active {
+.slider .info-button.active {
     background: rgba(255,255,255,0.85);
     color: rgba(0,0,0,0.7);
 }
 
-.slider .info.active:hover,
-.slider .info.active:focus-visible {
+.slider .info-button.active:hover,
+.slider .info-button.active:focus-visible {
     background: rgba(255,255,255,1.0);
     color: rgba(0,0,0,0.9);
 }
 
 /* Info panel */
 
-.info-panel {
+.info {
     position: absolute;
     top: calc(1.5vh + 2.5rem + 0.75rem);
     top: calc(1.5dvh + 2.5rem + 0.75rem);
@@ -239,51 +238,51 @@ body:has(.slider :target) {
 }
 
 @supports (backdrop-filter: blur(10px)) {
-    .info-panel {
+    .info {
         background: rgba(0,0,0,0.6);
         backdrop-filter: blur(10px);
     }
 }
 
-.slider.info-open .info-panel {
+.slider.info-open .info {
     display: block;
 }
 
-.info-panel h3 {
+.info h3 {
     font-size: 1.1rem;
     font-weight: bold;
     font-style: italic;
 }
 
-.info-panel h3 a {
+.info h3 a {
     color: inherit;
     text-decoration: none;
 }
 
-.info-panel h3 a:hover,
-.info-panel h3 a:focus-visible {
+.info h3 a:hover,
+.info h3 a:focus-visible {
     color: rgba(255,255,255,1.0);
     text-decoration: underline;
     outline: 0px;
 }
 
-.info-panel .date {
+.info .date {
     font-style: italic;
     opacity: 0.5;
     font-size: 0.85rem;
     margin-bottom: 0.75em;
 }
 
-.info-panel .description {
+.info .description {
     margin-bottom: 0.75em;
 }
 
-.info-panel .exposure {
+.info .exposure {
     opacity: 0.4;
     font-size: 0.75rem;
 }
 
-.info-panel .copyright {
+.info .copyright {
     margin-top: 0.75em;
     font-size: 0.85rem;
     opacity: 0.5;
@@ -291,37 +290,37 @@ body:has(.slider :target) {
 
 /* Scroll buttons */
 
-.scroll-btn-prev {
+.prev-button {
     bottom: 1.5vh;
     bottom: 1.5dvh;
     left: 1.5vw;
     left: 1.5dvw;
 }
 
-.scroll-btn-prev svg {
+.prev-button svg {
     translate: -1px 0;
 }
 
-.scroll-btn-next {
+.next-button {
     bottom: 1.5vh;
     bottom: 1.5dvh;
     right: 1.5vw;
     right: 1.5dvw;
 }
 
-.scroll-btn-next svg {
+.next-button svg {
     translate: 1px 0;
 }
 
 /* Image detail page */
 
-body.image {
+body.image-page {
     margin: 0;
     padding: 6vh 6vw 6vh 6vw;
     padding: 6dvh 6dvw 6dvh 6dvw;
 }
 
-body.image main > .image {
+.image-page .image {
     width: fit-content;
     max-width: 88vw;
     max-width: 88dvw;
@@ -330,17 +329,17 @@ body.image main > .image {
     flex-direction: column;
 }
 
-body.image main > .image header {
+.image-page .image header {
     margin-bottom: 1.2em;
 }
 
-body.image main > .image header h1 {
+.image-page .image header h1 {
     font-size: 1.8rem;
     font-weight: bold;
     font-style: italic;
 }
 
-body.image main > .image header .date {
+.image-page .image header .date {
     font-style: italic;
     font-size: 1.2rem;
     line-height: 1.2;
@@ -348,13 +347,13 @@ body.image main > .image header .date {
     margin-top: 0;
 }
 
-main > .image a.zoom {
+.image-page .image a.zoom {
     display: block;
     line-height: 0;
     cursor: zoom-in;
 }
 
-body.image main > .image img {
+.image-page .image img {
     max-width: 88vw;
     max-width: 88dvw;
     max-height: 87vh;
@@ -364,7 +363,7 @@ body.image main > .image img {
     display: block;
 }
 
-main > .image p {
+.image-page .image p {
     width: 0;
     min-width: 100%;
     margin-top: 0.5em;
@@ -373,13 +372,13 @@ main > .image p {
     opacity: 0.7;
 }
 
-main > .image .exposure {
+.image-page .image .exposure {
     font-size: 0.9rem;
     margin-top: 1rem;
     opacity: 0.4;
 }
 
-main .image footer {
+.image-page .image footer {
     margin-top: calc(1rem - 6px);
     width: 0;
     min-width: 100%;
@@ -389,13 +388,13 @@ main .image footer {
     align-items: baseline;
 }
 
-main .image footer svg {
+.image-page .image footer svg {
     translate: 0 6px;
     padding-right: 0.5em;
 }
 
-main > .image footer .copyright,
-main > .image footer .return {
+.image-page .image footer .copyright,
+.image-page .image footer .return {
     width: auto;
     min-width: 0;
     margin-top: 0;
@@ -404,14 +403,14 @@ main > .image footer .return {
     opacity: 0.6;
 }
 
-main > .image footer .return a {
+.image-page .image footer .return a {
     color: inherit;
     display: inline;
     text-decoration: none;
 }
 
-main > .image footer .return a:hover,
-main > .image footer .return a:focus-visible {
+.image-page .image footer .return a:hover,
+.image-page .image footer .return a:focus-visible {
     color: inherit;
     text-decoration: underline;
     opacity: 0.9;

@@ -1,10 +1,10 @@
 const slider = document.querySelector('.slider');
 const list = slider.querySelector('ul');
 
-const closeBtn = slider.querySelector('.close');
-const infoBtn = slider.querySelector('.info');
-const prevBtn = slider.querySelector('.scroll-btn-prev');
-const nextBtn = slider.querySelector('.scroll-btn-next');
+const closeBtn = slider.querySelector('.close-button');
+const infoBtn = slider.querySelector('.info-button');
+const prevBtn = slider.querySelector('.prev-button');
+const nextBtn = slider.querySelector('.next-button');
 let openerThumbnail = null;
 
 let infoPanelOpen = false;
@@ -14,11 +14,11 @@ function openInfoPanel() {
     slider.classList.add('info-open');
     infoBtn.classList.add('active');
     infoBtn.setAttribute('aria-expanded', 'true');
-    for (const panel of slider.querySelectorAll('.info-panel')) {
+    for (const panel of slider.querySelectorAll('.info')) {
         panel.setAttribute('aria-hidden', 'true');
     }
     const slide = currentSlide();
-    const panel = slide?.querySelector('.info-panel');
+    const panel = slide?.querySelector('.info');
     if (panel) panel.setAttribute('aria-hidden', 'false');
 }
 
@@ -28,7 +28,7 @@ function closeInfoPanel() {
     slider.classList.remove('info-open');
     infoBtn.classList.remove('active');
     infoBtn.setAttribute('aria-expanded', 'false');
-    for (const panel of slider.querySelectorAll('.info-panel')) {
+    for (const panel of slider.querySelectorAll('.info')) {
         panel.setAttribute('aria-hidden', 'true');
     }
 }
